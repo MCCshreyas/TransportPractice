@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Employee.Contracts;
+using Employee.Contracts.CreateEmployee;
+using Employee.Contracts.GetAllEmployee;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +13,23 @@ namespace Employee.Api.Controllers
 	public class EmployeeController : ControllerBase
 	{
 		private readonly IRequestClient<CreateEmployeeRequest> _requestClient;
+		private readonly IRequestClient<GetAllEmployeeRequest> _getAllEmployeeRequestClient;
 
-		public EmployeeController(IRequestClient<CreateEmployeeRequest> requestClient)
+		public EmployeeController(
+			IRequestClient<CreateEmployeeRequest> createEmployeeRequestClient,
+			IRequestClient<GetAllEmployeeRequest> getAllEmployeeRequestClient)
 		{
-			_requestClient = requestClient;
+			_requestClient = createEmployeeRequestClient;
+			_getAllEmployeeRequestClient = getAllEmployeeRequestClient;
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> GetAllEmployees()
+		{
+			var response =
+				await _getAllEmployeeRequestClient.GetResponse<GetAllEmployeeResponse>(new GetAllEmployeeRequest());
+
+			return Ok(response.Message.Employee);
 		}
 
 		[HttpPost]

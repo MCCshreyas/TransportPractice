@@ -1,37 +1,44 @@
-using Employee.Components;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Employee.Contracts;
-using Employee.Infrastructure;
+using Employee.Contracts.CreateEmployee;
+using Employee.Contracts.GetAllEmployee;
 using MassTransit;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using SharedFramework;
 
 namespace Employee.Api
 {
 	public class Startup
 	{
+		public Startup(IConfiguration configuration)
+		{
+			Configuration = configuration;
+		}
+
+		public IConfiguration Configuration { get; }
+
 		public void ConfigureServices(IServiceCollection services)
 		{
+			var appConfig = new AppConfig();
+			Configuration.GetSection(nameof(AppConfig)).Bind(appConfig);
+
 			services.AddSwaggerGen();
 			services.AddMassTransit(config =>
 			{
 				config.UsingRabbitMq((ctx, cfg) =>
 				{
-					cfg.Host("localhost");
+					cfg.Host(appConfig.Host);
 					cfg.ConfigureEndpoints(ctx);
 				});
 				config.AddRequestClient<CreateEmployeeRequest>();
+				config.AddRequestClient<GetAllEmployeeRequest>();
 			});
 
 			services.AddMassTransitHostedService();
 			services.AddControllers();
-			services.AddDbContext<EmployeeDbContext>(
-				option =>
-				{
-					option.UseInMemoryDatabase("EmployeeDb");
-				});
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

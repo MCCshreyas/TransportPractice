@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Employee.Contracts;
+using Employee.Contracts.CreateEmployee;
 using Employee.Infrastructure;
 using MassTransit;
 

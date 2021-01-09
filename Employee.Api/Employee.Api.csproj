@@ -9,19 +9,26 @@
 	  <PackageReference Include="MassTransit.AspNetCore" Version="7.1.2" />
 	  <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.2" />
 	  <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.2" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.1">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.1">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
 
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Consumers\" />
+	  <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+	  <PackageReference Include="Serilog.Extensions.Hosting" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Employee.Components\Employee.Components.csproj" />
     <ProjectReference Include="..\Employee.Contracts\Employee.Contracts.csproj" />
     <ProjectReference Include="..\Employee.Infrastructure\Employee.Infrastructure.csproj" />
+    <ProjectReference Include="..\SharedFramework\SharedFramework.csproj" />
   </ItemGroup>
 
 </Project>
