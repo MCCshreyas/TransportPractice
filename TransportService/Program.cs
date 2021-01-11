@@ -1,32 +1,27 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Hosting;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
+using System.Threading.Tasks;
 using AutoMapper;
 using Employee.Components;
 using Employee.Infrastructure;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Serilog;
 using SharedFramework;
 
-namespace TransportService
+namespace Employee.Service
 {
 	public class Program
 	{
 		public static AppConfig AppConfig { get; set; }
 
-		static async Task Main(string[] args)
+		private static async Task Main(string[] args)
 		{
 			var isService = !(Debugger.IsAttached || args.Contains("--console"));
-
 
 			Log.Logger = new LoggerConfiguration()
 				.Enrich.FromLogContext()
@@ -36,7 +31,7 @@ namespace TransportService
 			var builder = new HostBuilder()
 				.ConfigureAppConfiguration((_, config) =>
 				{
-					config.AddJsonFile("appsettings.json", optional: true);
+					config.AddJsonFile("appsettings.json", true);
 					config.AddEnvironmentVariables();
 
 					if (args != null)
@@ -87,26 +82,5 @@ namespace TransportService
 				await builder.RunConsoleAsync();
 			}
 		}
-
 	}
-
-	public class EmployeeDbContextFactory : IDesignTimeDbContextFactory<EmployeeDbContext>
-	{
-		public EmployeeDbContext CreateDbContext(string[] args)
-		{
-			IConfigurationRoot configuration = new ConfigurationBuilder()
-				.SetBasePath(Directory.GetCurrentDirectory())
-				.AddJsonFile("appsettings.json")
-				.Build();
-
-			AppConfig config = new AppConfig();
-			configuration.GetSection("AppConfig").Bind(config);
-
-			var builder = new DbContextOptionsBuilder<EmployeeDbContext>();
-			var connectionString = configuration.GetConnectionString("DefaultConnection");
-			builder.UseSqlServer(config.ConnectionString);
-			return new EmployeeDbContext(builder.Options);
-		}
-	}
-
 }

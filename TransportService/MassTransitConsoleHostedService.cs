@@ -4,7 +4,7 @@ using MassTransit;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TransportService
+namespace Employee.Service
 {
 	public class MassTransitConsoleHostedService :
 		IHostedService
