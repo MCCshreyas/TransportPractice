@@ -25,12 +25,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Department.Contracts\Department.Contracts.csproj" />
-		<ProjectReference Include="..\SharedFramework\SharedFramework.csproj" />
+	  <Folder Include="Controllers\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Controllers\" />
+	  <ProjectReference Include="..\..\Common\SharedFramework\SharedFramework.csproj" />
+	  <ProjectReference Include="..\Department.Contracts\Department.Contracts.csproj" />
 	</ItemGroup>
 
 </Project>

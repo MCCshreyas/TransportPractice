@@ -22,8 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\SharedFramework\SharedFramework.csproj" />
     <ProjectReference Include="..\Employee.Components\Employee.Components.csproj" />
-    <ProjectReference Include="..\SharedFramework\SharedFramework.csproj" />
+    <ProjectReference Include="..\Employee.Infrastructure\Employee.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

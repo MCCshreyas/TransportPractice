@@ -25,10 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Employee.Components\Employee.Components.csproj" />
+    <ProjectReference Include="..\..\Common\SharedFramework\SharedFramework.csproj" />
     <ProjectReference Include="..\Employee.Contracts\Employee.Contracts.csproj" />
-    <ProjectReference Include="..\Employee.Infrastructure\Employee.Infrastructure.csproj" />
-    <ProjectReference Include="..\SharedFramework\SharedFramework.csproj" />
   </ItemGroup>
 
 </Project>
