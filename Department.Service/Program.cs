@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using Employee.Components;
-using Employee.Infrastructure;
+using Department.Components.Consumers;
+using Department.Infrastructure;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,9 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Events;
 using SharedFramework;
 
-namespace Employee.Service
+namespace Department.Service
 {
 	public class Program
 	{
@@ -42,11 +43,11 @@ namespace Employee.Service
 					AppConfig = new AppConfig();
 					hostContext.Configuration.GetSection("AppConfig").Bind(AppConfig);
 
-					services.AddAutoMapper(typeof(CreateEmployeeConsumer).Assembly);
+					services.AddAutoMapper(typeof(CreateDepartmentConsumer).Assembly);
 
 					services.AddMassTransit(config =>
 					{
-						config.AddConsumersFromNamespaceContaining(typeof(CreateEmployeeConsumer));
+						config.AddConsumersFromNamespaceContaining(typeof(CreateDepartmentConsumer));
 
 						config.UsingRabbitMq((ctx, cfg) =>
 						{
@@ -55,12 +56,12 @@ namespace Employee.Service
 						});
 					});
 
-					services.AddDbContext<EmployeeDbContext>(
+					services.AddDbContext<DepartmentDbContext>(
 					option =>
 					{
 						option.UseSqlServer(AppConfig.ConnectionString, a =>
 						{
-							a.MigrationsAssembly(typeof(EmployeeDbContext).FullName);
+							a.MigrationsAssembly(typeof(DepartmentDbContext).FullName);
 						});
 					});
 
@@ -81,6 +82,8 @@ namespace Employee.Service
 			{
 				await builder.RunConsoleAsync();
 			}
+
+			Log.Logger.Write(LogEventLevel.Debug, "Employee Service has been started...");
 		}
 	}
 }

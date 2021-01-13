@@ -4,10 +4,9 @@ using MassTransit;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Employee.Service
+namespace SharedFramework
 {
-	public class MassTransitConsoleHostedService :
-		IHostedService
+	public class MassTransitConsoleHostedService : IHostedService
 	{
 		private readonly IBusControl _bus;
 		private readonly ILogger _logger;
@@ -20,13 +19,13 @@ namespace Employee.Service
 
 		public async Task StartAsync(CancellationToken cancellationToken)
 		{
-			_logger.LogInformation("Starting bus");
+			_logger.LogInformation("Bus is starting...");
 			await _bus.StartAsync(cancellationToken).ConfigureAwait(false);
 		}
 
 		public Task StopAsync(CancellationToken cancellationToken)
 		{
-			_logger.LogInformation("Stopping bus");
+			_logger.LogInformation("Bus is stopping...");
 			return _bus.StopAsync(cancellationToken);
 		}
 	}
