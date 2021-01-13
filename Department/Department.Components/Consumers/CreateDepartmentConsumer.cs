@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using Department.Contracts.CreateDepartment;
+﻿using Department.Contracts.CreateDepartment;
 using Department.Infrastructure;
 using MassTransit;
+using System.Threading.Tasks;
 
 namespace Department.Components.Consumers
 {

@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Department.Components.Consumers;
 using Department.Infrastructure;
 using MassTransit;
@@ -13,6 +10,9 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 using SharedFramework;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Department.Service
 {

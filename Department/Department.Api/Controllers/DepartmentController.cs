@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using Department.Contracts.CreateDepartment;
+﻿using Department.Contracts.CreateDepartment;
 using Department.Contracts.GetAllDepartments;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Department.Api.Controllers
 {
@@ -14,7 +14,7 @@ namespace Department.Api.Controllers
 		private readonly IRequestClient<GetAllDepartmentRequest> _getAllDepartmentRequestClient;
 
 		public DepartmentController(
-			IRequestClient<CreateDepartmentRequest> createDepartmentRequestClient, 
+			IRequestClient<CreateDepartmentRequest> createDepartmentRequestClient,
 			IRequestClient<GetAllDepartmentRequest> getAllDepartmentRequestClient)
 		{
 			_createDepartmentRequestClient = createDepartmentRequestClient;

@@ -4,8 +4,8 @@ namespace Department.Infrastructure
 {
 	public class DepartmentDbContext : DbContext
 	{
-		public DepartmentDbContext(DbContextOptions<DepartmentDbContext> dbContextOptions) 
-			:base(dbContextOptions)
+		public DepartmentDbContext(DbContextOptions<DepartmentDbContext> dbContextOptions)
+			: base(dbContextOptions)
 		{
 		}
 

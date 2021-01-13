@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Employee.Contracts.EditEmployee;
+﻿using Employee.Contracts.EditEmployee;
 using Employee.Infrastructure;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Employee.Components
 {

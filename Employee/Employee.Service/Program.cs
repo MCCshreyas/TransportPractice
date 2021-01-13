@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Employee.Components;
 using Employee.Infrastructure;
 using MassTransit;
@@ -13,6 +10,9 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 using SharedFramework;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Employee.Service
 {

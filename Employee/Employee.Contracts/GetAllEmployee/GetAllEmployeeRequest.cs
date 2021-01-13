@@ -1,5 +1,5 @@
 ﻿namespace Employee.Contracts.GetAllEmployee
 {
-	public record GetAllEmployeeRequest 
+	public record GetAllEmployeeRequest
 	{ }
 }

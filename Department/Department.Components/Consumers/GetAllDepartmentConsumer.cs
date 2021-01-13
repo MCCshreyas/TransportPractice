@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Department.Contracts.GetAllDepartments;
 using Department.Infrastructure;
 using MassTransit;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Department.Components.Consumers
 {
@@ -26,7 +26,7 @@ namespace Department.Components.Consumers
 		{
 			var departments = _dbContext.Departments.ToList();
 
-			var allDepartmentDtos =  _mapper.Map<List<Domain.Department>,List<DepartmentDto>>(departments);
+			var allDepartmentDtos = _mapper.Map<List<Domain.Department>, List<DepartmentDto>>(departments);
 
 			await context.RespondAsync(new GetAllDepartmentResponse
 			{

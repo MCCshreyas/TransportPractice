@@ -4,8 +4,8 @@ namespace Employee.Infrastructure
 {
 	public class EmployeeDbContext : DbContext
 	{
-		public EmployeeDbContext(DbContextOptions<EmployeeDbContext> dbContextOptions) 
-			:base(dbContextOptions)
+		public EmployeeDbContext(DbContextOptions<EmployeeDbContext> dbContextOptions)
+			: base(dbContextOptions)
 		{
 		}
 

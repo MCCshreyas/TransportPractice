@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Employee.Contracts;
 using Employee.Contracts.GetAllEmployee;
 using Employee.Infrastructure;
 using MassTransit;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Employee.Components
 {
@@ -24,7 +24,7 @@ namespace Employee.Components
 		{
 			var employees = _context.Employees.ToList();
 
-			var allEmployee =  _mapper.Map<List<Domain.Employee>,List<EmployeeDto>>(employees);
+			var allEmployee = _mapper.Map<List<Domain.Employee>, List<EmployeeDto>>(employees);
 
 			await context.RespondAsync(new GetAllEmployeeResponse { Employee = allEmployee });
 		}

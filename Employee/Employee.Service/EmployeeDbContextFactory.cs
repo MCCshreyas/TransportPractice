@@ -1,9 +1,9 @@
-﻿using System.IO;
-using Employee.Infrastructure;
+﻿using Employee.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using SharedFramework;
+using System.IO;
 
 namespace Employee.Service
 {

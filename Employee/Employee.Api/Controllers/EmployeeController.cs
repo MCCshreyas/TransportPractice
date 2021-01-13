@@ -1,9 +1,9 @@
-using System.Threading.Tasks;
 using Employee.Contracts.CreateEmployee;
 using Employee.Contracts.EditEmployee;
 using Employee.Contracts.GetAllEmployee;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Employee.Api.Controllers
 {
@@ -52,7 +52,7 @@ namespace Employee.Api.Controllers
 			{
 				var response =
 					await _editEmployeeRequestClient.GetResponse<EditEmployeeResponse>(new EditEmployeeRequest
-						{ Id = id, Name = request.Name});
+					{ Id = id, Name = request.Name });
 
 				return Ok(response.Message);
 			}

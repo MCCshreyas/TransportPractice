@@ -1,10 +1,9 @@
-﻿using System.Threading.Tasks;
-using Employee.Contracts;
-using Employee.Contracts.CreateEmployee;
+﻿using Employee.Contracts.CreateEmployee;
 using Employee.Infrastructure;
 using MassTransit;
+using System.Threading.Tasks;
 
-namespace Employee.Components 
+namespace Employee.Components
 {
 	public class CreateEmployeeConsumer : IConsumer<CreateEmployeeRequest>
 	{
