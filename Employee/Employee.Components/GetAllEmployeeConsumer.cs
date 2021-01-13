@@ -26,7 +26,7 @@ namespace Employee.Components
 
 			var allEmployee = _mapper.Map<List<Domain.Employee>, List<EmployeeDto>>(employees);
 
-			await context.RespondAsync(new GetAllEmployeeResponse { Employee = allEmployee });
+			await context.RespondAsync(new GetAllEmployeeResponse {Employee = allEmployee});
 		}
 	}
 }

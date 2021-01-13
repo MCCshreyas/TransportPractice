@@ -25,7 +25,8 @@ namespace Department.Api.Controllers
 		public async Task<IActionResult> GetAllDepartment()
 		{
 			var response =
-				await _getAllDepartmentRequestClient.GetResponse<GetAllDepartmentResponse>(new GetAllDepartmentRequest());
+				await _getAllDepartmentRequestClient.GetResponse<GetAllDepartmentResponse>(
+					new GetAllDepartmentRequest());
 			return Ok(response.Message.Departments);
 		}
 

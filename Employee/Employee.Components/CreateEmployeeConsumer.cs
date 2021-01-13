@@ -24,7 +24,7 @@ namespace Employee.Components
 			await _context.Employees.AddAsync(employee);
 			await _context.SaveChangesAsync();
 
-			await consumeContext.Publish(new EmployeeCreatedEvent { EmployeeId = employee.Id });
+			await consumeContext.Publish(new EmployeeCreatedEvent {EmployeeId = employee.Id});
 
 			await consumeContext.RespondAsync(new CreateEmployeeResponse
 			{

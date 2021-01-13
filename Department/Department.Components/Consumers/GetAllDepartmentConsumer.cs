@@ -14,7 +14,7 @@ namespace Department.Components.Consumers
 		private readonly IMapper _mapper;
 
 		public GetAllDepartmentConsumer
-			(DepartmentDbContext dbContext,
+		(DepartmentDbContext dbContext,
 			IMapper mapper
 		)
 		{

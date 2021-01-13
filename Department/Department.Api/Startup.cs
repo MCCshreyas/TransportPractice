@@ -49,10 +49,7 @@ namespace Department.Api
 
 			app.UseSwagger();
 
-			app.UseSwaggerUI(c =>
-			{
-				c.SwaggerEndpoint("/swagger/v1/swagger.json", "DepartmentApi");
-			});
+			app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "DepartmentApi"); });
 
 			app.UseRouting();
 

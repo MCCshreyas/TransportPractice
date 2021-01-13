@@ -6,7 +6,6 @@ namespace Employee.Contracts.EditEmployee
 	{
 		public int Id { get; set; }
 
-		[Required]
-		public string Name { get; init; }
+		[Required] public string Name { get; init; }
 	}
 }

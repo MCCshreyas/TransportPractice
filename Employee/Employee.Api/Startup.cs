@@ -51,17 +51,11 @@ namespace Employee.Api
 
 			app.UseSwagger();
 
-			app.UseSwaggerUI(c =>
-			{
-				c.SwaggerEndpoint("/swagger/v1/swagger.json", "EmployeeApi");
-			});
+			app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "EmployeeApi"); });
 
 			app.UseRouting();
 
-			app.UseEndpoints(endpoints =>
-			{
-				endpoints.MapDefaultControllerRoute();
-			});
+			app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
 		}
 	}
 }

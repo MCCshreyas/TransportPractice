@@ -57,13 +57,11 @@ namespace Department.Service
 					});
 
 					services.AddDbContext<DepartmentDbContext>(
-					option =>
-					{
-						option.UseSqlServer(AppConfig.ConnectionString, a =>
+						option =>
 						{
-							a.MigrationsAssembly(typeof(DepartmentDbContext).FullName);
+							option.UseSqlServer(AppConfig.ConnectionString,
+								a => { a.MigrationsAssembly(typeof(DepartmentDbContext).FullName); });
 						});
-					});
 
 					services.AddHostedService<MassTransitConsoleHostedService>();
 				}).UseSerilog()

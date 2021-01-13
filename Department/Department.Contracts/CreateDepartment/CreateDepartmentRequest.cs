@@ -4,8 +4,7 @@ namespace Department.Contracts.CreateDepartment
 {
 	public class CreateDepartmentRequest
 	{
-		[Required]
-		public string Name { get; set; }
+		[Required] public string Name { get; set; }
 	}
 
 	public class CreateDepartmentResponse

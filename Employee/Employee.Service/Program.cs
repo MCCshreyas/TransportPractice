@@ -57,13 +57,11 @@ namespace Employee.Service
 					});
 
 					services.AddDbContext<EmployeeDbContext>(
-					option =>
-					{
-						option.UseSqlServer(AppConfig.ConnectionString, a =>
+						option =>
 						{
-							a.MigrationsAssembly(typeof(EmployeeDbContext).FullName);
+							option.UseSqlServer(AppConfig.ConnectionString,
+								a => { a.MigrationsAssembly(typeof(EmployeeDbContext).FullName); });
 						});
-					});
 
 					services.AddHostedService<MassTransitConsoleHostedService>();
 				}).UseSerilog()

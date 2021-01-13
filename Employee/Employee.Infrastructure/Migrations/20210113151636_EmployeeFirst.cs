@@ -15,10 +15,7 @@ namespace Employee.Infrastructure.Migrations
 					Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
 					DepartmentId = table.Column<int>(type: "int", nullable: false)
 				},
-				constraints: table =>
-				{
-					table.PrimaryKey("PK_Employees", x => x.Id);
-				});
+				constraints: table => { table.PrimaryKey("PK_Employees", x => x.Id); });
 		}
 
 		protected override void Down(MigrationBuilder migrationBuilder)

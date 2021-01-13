@@ -17,7 +17,8 @@ namespace Employee.Api.Controllers
 
 		public EmployeeController(
 			IRequestClient<CreateEmployeeRequest> createEmployeeRequestClient,
-			IRequestClient<GetAllEmployeeRequest> getAllEmployeeRequestClient, IRequestClient<EditEmployeeRequest> editEmployeeRequestClient)
+			IRequestClient<GetAllEmployeeRequest> getAllEmployeeRequestClient,
+			IRequestClient<EditEmployeeRequest> editEmployeeRequestClient)
 		{
 			_createEmployeeRequestClient = createEmployeeRequestClient;
 			_getAllEmployeeRequestClient = getAllEmployeeRequestClient;
@@ -52,7 +53,7 @@ namespace Employee.Api.Controllers
 			{
 				var response =
 					await _editEmployeeRequestClient.GetResponse<EditEmployeeResponse>(new EditEmployeeRequest
-					{ Id = id, Name = request.Name });
+						{Id = id, Name = request.Name});
 
 				return Ok(response.Message);
 			}
