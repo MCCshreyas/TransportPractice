@@ -4,6 +4,7 @@ using Employee.Contracts.GetAllEmployee;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Employee.Contracts.DeleteEmployee;
 
 namespace Employee.Api.Controllers
 {
@@ -14,15 +15,17 @@ namespace Employee.Api.Controllers
 		private readonly IRequestClient<CreateEmployeeRequest> _createEmployeeRequestClient;
 		private readonly IRequestClient<GetAllEmployeeRequest> _getAllEmployeeRequestClient;
 		private readonly IRequestClient<EditEmployeeRequest> _editEmployeeRequestClient;
+		private readonly IRequestClient<DeleteEmployeeRequest> _deleteEmployeeRequestClient;
 
 		public EmployeeController(
 			IRequestClient<CreateEmployeeRequest> createEmployeeRequestClient,
 			IRequestClient<GetAllEmployeeRequest> getAllEmployeeRequestClient,
-			IRequestClient<EditEmployeeRequest> editEmployeeRequestClient)
+			IRequestClient<EditEmployeeRequest> editEmployeeRequestClient, IRequestClient<DeleteEmployeeRequest> deleteEmployeeRequestClient)
 		{
 			_createEmployeeRequestClient = createEmployeeRequestClient;
 			_getAllEmployeeRequestClient = getAllEmployeeRequestClient;
 			_editEmployeeRequestClient = editEmployeeRequestClient;
+			_deleteEmployeeRequestClient = deleteEmployeeRequestClient;
 		}
 
 		[HttpGet]
@@ -60,5 +63,12 @@ namespace Employee.Api.Controllers
 
 			return BadRequest(ModelState);
 		}
+
+		[HttpDelete]
+		public async Task<IActionResult> DeleteEmployee(DeleteEmployeeRequest request)
+        {
+            var response = await _deleteEmployeeRequestClient.GetResponse<DeleteEmployeeResponse>(request);
+            return Ok(response.Message);
+        }
 	}
 }

@@ -1,4 +1,5 @@
 using Employee.Contracts.CreateEmployee;
+using Employee.Contracts.DeleteEmployee;
 using Employee.Contracts.EditEmployee;
 using Employee.Contracts.GetAllEmployee;
 using MassTransit;
@@ -36,6 +37,7 @@ namespace Employee.Api
 				config.AddRequestClient<CreateEmployeeRequest>();
 				config.AddRequestClient<GetAllEmployeeRequest>();
 				config.AddRequestClient<EditEmployeeRequest>();
+				config.AddRequestClient<DeleteEmployeeRequest>();
 			});
 
 			services.AddMassTransitHostedService();

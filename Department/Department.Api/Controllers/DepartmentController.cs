@@ -3,6 +3,7 @@ using Department.Contracts.GetAllDepartments;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Department.Contracts.DeleteDepartment;
 
 namespace Department.Api.Controllers
 {
@@ -12,21 +13,23 @@ namespace Department.Api.Controllers
 	{
 		private readonly IRequestClient<CreateDepartmentRequest> _createDepartmentRequestClient;
 		private readonly IRequestClient<GetAllDepartmentRequest> _getAllDepartmentRequestClient;
+		private readonly IRequestClient<DeleteDepartmentRequest> _deleteDepartmentRequestClient;
 
 		public DepartmentController(
-			IRequestClient<CreateDepartmentRequest> createDepartmentRequestClient,
-			IRequestClient<GetAllDepartmentRequest> getAllDepartmentRequestClient)
+		  IRequestClient<CreateDepartmentRequest> createDepartmentRequestClient,
+		  IRequestClient<GetAllDepartmentRequest> getAllDepartmentRequestClient, IRequestClient<DeleteDepartmentRequest> deleteDepartmentRequestClient)
 		{
 			_createDepartmentRequestClient = createDepartmentRequestClient;
 			_getAllDepartmentRequestClient = getAllDepartmentRequestClient;
+			_deleteDepartmentRequestClient = deleteDepartmentRequestClient;
 		}
 
 		[HttpGet]
 		public async Task<IActionResult> GetAllDepartment()
 		{
 			var response =
-				await _getAllDepartmentRequestClient.GetResponse<GetAllDepartmentResponse>(
-					new GetAllDepartmentRequest());
+			  await _getAllDepartmentRequestClient.GetResponse<GetAllDepartmentResponse>(
+				new GetAllDepartmentRequest());
 			return Ok(response.Message.Departments);
 		}
 
@@ -40,6 +43,14 @@ namespace Department.Api.Controllers
 			}
 
 			return BadRequest(ModelState);
+		}
+
+		[HttpDelete]
+		public async Task<IActionResult> DeleteDepartment(DeleteDepartmentRequest request)
+		{
+			var response = await _deleteDepartmentRequestClient.GetResponse<DeleteDepartmentResponse>(request);
+
+			return Ok(response.Message);
 		}
 	}
 }

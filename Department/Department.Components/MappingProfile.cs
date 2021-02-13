@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Department.Contracts.GetAllDepartments;
 
-namespace Department.Components.Consumers
+namespace Department.Components
 {
 	public class MappingProfile : Profile
 	{

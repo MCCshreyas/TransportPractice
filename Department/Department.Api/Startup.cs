@@ -1,4 +1,5 @@
 using Department.Contracts.CreateDepartment;
+using Department.Contracts.DeleteDepartment;
 using Department.Contracts.GetAllDepartments;
 using MassTransit;
 using Microsoft.AspNetCore.Builder;
@@ -34,6 +35,7 @@ namespace Department.Api
 				});
 				config.AddRequestClient<CreateDepartmentRequest>();
 				config.AddRequestClient<GetAllDepartmentRequest>();
+				config.AddRequestClient<DeleteDepartmentRequest>();
 			});
 
 			services.AddMassTransitHostedService();
