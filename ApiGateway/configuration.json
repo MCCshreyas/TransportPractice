@@ -35,6 +35,54 @@
 			],
 			"UpstreamPathTemplate": "/api/department",
 			"UpstreamHttpMethod": [ "DELETE" ]
+		},
+		{
+			"DownstreamPathTemplate": "/Employee/GetAllEmployees",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5000
+				}
+			],
+			"UpstreamPathTemplate": "/api/employee",
+			"UpstreamHttpMethod": [ "GET" ]
+		},
+		{
+			"DownstreamPathTemplate": "/Employee/CreateEmployee",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5000
+				}
+			],
+			"UpstreamPathTemplate": "/api/employee",
+			"UpstreamHttpMethod": [ "POST" ]
+		},
+		{
+			"DownstreamPathTemplate": "/Employee/EditEmployee",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5000
+				}
+			],
+			"UpstreamPathTemplate": "/api/employee/{id}",
+			"UpstreamHttpMethod": [ "PUT" ]
+		},
+		{
+			"DownstreamPathTemplate": "/Employee/DeleteEmployee",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5000
+				}
+			],
+			"UpstreamPathTemplate": "/api/employee/",
+			"UpstreamHttpMethod": [ "DELETE" ]
 		}
 	],
 	"GlobalConfiguration": {

@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Employee.Service": {
+        "commandName": "Project"
+    }
+  }
+}
