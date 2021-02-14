@@ -20,7 +20,7 @@ namespace Employee.Service
 			configuration.GetSection("AppConfig").Bind(config);
 
 			var builder = new DbContextOptionsBuilder<EmployeeDbContext>();
-			builder.UseSqlServer(config.ConnectionString);
+			builder.UseSqlServer(config.DepartmentDbConnectionString);
 			return new EmployeeDbContext(builder.Options);
 		}
 	}

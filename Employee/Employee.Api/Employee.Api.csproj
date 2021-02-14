@@ -27,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Common\SharedFramework\SharedFramework.csproj" />
     <ProjectReference Include="..\Employee.Contracts\Employee.Contracts.csproj" />
+		<Content Include="..\..\Common\SharedFramework\sharedSettings.json" />
   </ItemGroup>
 
 </Project>

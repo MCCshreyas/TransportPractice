@@ -25,12 +25,7 @@
     <ProjectReference Include="..\..\Common\SharedFramework\SharedFramework.csproj" />
     <ProjectReference Include="..\Department.Components\Department.Components.csproj" />
     <ProjectReference Include="..\Department.Infrastructure\Department.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Content Include="..\..\Common\SharedFramework\sharedSettings.json" />
   </ItemGroup>
 
 </Project>

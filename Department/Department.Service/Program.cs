@@ -11,6 +11,7 @@ using Serilog;
 using Serilog.Events;
 using SharedFramework;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,9 +31,11 @@ namespace Department.Service
 				.CreateLogger();
 
 			var builder = new HostBuilder()
-				.ConfigureAppConfiguration((_, config) =>
-				{
-					config.AddJsonFile("appsettings.json", true);
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var env = hostingContext.HostingEnvironment;
+                    var frameworkFolder = Path.Combine(env.ContentRootPath, "..", "..","..","..",".." ,"Common", "SharedFramework");
+                    config.AddJsonFile(Path.Combine(frameworkFolder, "sharedSettings.json"), optional: true, reloadOnChange: true);
 					config.AddEnvironmentVariables();
 
 					if (args != null)
@@ -59,7 +62,7 @@ namespace Department.Service
 					services.AddDbContext<DepartmentDbContext>(
 						option =>
 						{
-							option.UseSqlServer(AppConfig.ConnectionString,
+							option.UseSqlServer(AppConfig.DepartmentDbConnectionString,
 								a => { a.MigrationsAssembly(typeof(DepartmentDbContext).FullName); });
 						});
 

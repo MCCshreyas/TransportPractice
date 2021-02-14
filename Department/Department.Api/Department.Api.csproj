@@ -31,6 +31,9 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Common\SharedFramework\SharedFramework.csproj" />
 	  <ProjectReference Include="..\Department.Contracts\Department.Contracts.csproj" />
+		<Content Include="..\..\Common\SharedFramework\sharedSettings.json" />
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

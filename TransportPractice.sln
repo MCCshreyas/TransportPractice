@@ -21,19 +21,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D8E817
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Employee", "Employee", "{042AE1DC-31FF-4E35-B79C-F1120DB85726}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Department.Domain", "Department\Department.Domain\Department.Domain.csproj", "{4199FE3A-C397-4417-93E0-120B7354B066}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Department.Domain", "Department\Department.Domain\Department.Domain.csproj", "{4199FE3A-C397-4417-93E0-120B7354B066}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Department.Api", "Department\Department.Api\Department.Api.csproj", "{87ED351E-933F-4D3E-8EE0-EC551A686F39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Department.Api", "Department\Department.Api\Department.Api.csproj", "{87ED351E-933F-4D3E-8EE0-EC551A686F39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Department.Infrastructure", "Department\Department.Infrastructure\Department.Infrastructure.csproj", "{0D6B087F-7322-4405-B27C-E87CEAC2651C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Department.Infrastructure", "Department\Department.Infrastructure\Department.Infrastructure.csproj", "{0D6B087F-7322-4405-B27C-E87CEAC2651C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Department.Components", "Department\Department.Components\Department.Components.csproj", "{056E52E9-C4A8-4826-AB20-00D5BD8766C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Department.Components", "Department\Department.Components\Department.Components.csproj", "{056E52E9-C4A8-4826-AB20-00D5BD8766C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Department.Contracts", "Department\Department.Contracts\Department.Contracts.csproj", "{D35F1EC9-6226-45FF-9946-9EB87DB5C91C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Department.Contracts", "Department\Department.Contracts\Department.Contracts.csproj", "{D35F1EC9-6226-45FF-9946-9EB87DB5C91C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Department.Service", "Department\Department.Service\Department.Service.csproj", "{E82FF67F-0191-4421-9777-195B931432AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Department.Service", "Department\Department.Service\Department.Service.csproj", "{E82FF67F-0191-4421-9777-195B931432AB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Department", "Department", "{7AB4BEBF-26AB-49E6-A35E-70C35DF003E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{BDD1C66D-F4E9-4B89-906C-B28B8395C9E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{E82FF67F-0191-4421-9777-195B931432AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E82FF67F-0191-4421-9777-195B931432AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E82FF67F-0191-4421-9777-195B931432AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDD1C66D-F4E9-4B89-906C-B28B8395C9E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDD1C66D-F4E9-4B89-906C-B28B8395C9E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDD1C66D-F4E9-4B89-906C-B28B8395C9E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDD1C66D-F4E9-4B89-906C-B28B8395C9E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

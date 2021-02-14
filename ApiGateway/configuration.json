@@ -1,0 +1,43 @@
+{
+	"Routes": [
+		{
+			"DownstreamPathTemplate": "/Department/GetAllDepartment",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 3000
+				}
+			],
+			"UpstreamPathTemplate": "/api/department",
+			"UpstreamHttpMethod": [ "GET" ]
+		},
+		{
+			"DownstreamPathTemplate": "/Department/CreateDepartment",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 3000
+				}
+			],
+			"UpstreamPathTemplate": "/api/department",
+			"UpstreamHttpMethod": [ "POST" ]
+		},
+		{
+			"DownstreamPathTemplate": "/Department/DeleteDepartment",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 3000
+				}
+			],
+			"UpstreamPathTemplate": "/api/department",
+			"UpstreamHttpMethod": [ "DELETE" ]
+		}
+	],
+	"GlobalConfiguration": {
+		"BaseUrl": "http://localhost:8000"
+	}
+}
